@@ -1,0 +1,5 @@
+python-cachetools (100:5.5.2-1) UNRELEASED; urgency=medium
+
+  * https://github.com/tkem/cachetools/releases/tag/v5.5.2
+
+ -- Wong Hoi Sing Edison <hswong3i@pantarei-design.com>  Fri, 21 Feb 2025 12:10:31 +0800
