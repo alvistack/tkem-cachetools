@@ -14,6 +14,8 @@
 
 %global debug_package %{nil}
 
+%global source_date_epoch_from_changelog 0
+
 Name: python-cachetools
 Epoch: 100
 Version: 5.3.0
