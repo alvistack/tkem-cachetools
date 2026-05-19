@@ -1,0 +1,4 @@
+python-cachetools source: file-without-copyright-information
+python-cachetools source: no-debian-changes
+python-cachetools source: source-contains-prebuilt-windows-binary
+python-cachetools source: source-package-encodes-python-version
