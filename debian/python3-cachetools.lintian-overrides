@@ -1,0 +1,4 @@
+python3-cachetools: copyright-without-copyright-notice
+python3-cachetools: initial-upload-closes-no-bugs
+python3-cachetools: no-manual-page
+python3-cachetools: zero-byte-file-in-doc-directory
