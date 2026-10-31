@@ -38,6 +38,9 @@ class CacheKeysTest(unittest.TestCase):
         # untyped keys compare equal
         self.assertEqual(key("x", 1, 2, 3), key("y", 1.0, 2.0, 3.0))
         self.assertEqual(hash(key("x", 1, 2, 3)), hash(key("y", 1.0, 2.0, 3.0)))
+        # "self" is positional-only, so it may also be a keyword argument
+        self.assertEqual(key("x", self=1), key("y", self=1))
+        self.assertNotEqual(key("x", self=1), key("x"))
 
     def test_typedkey(self, key=cachetools.keys.typedkey):
         self.assertEqual(key(), key())
@@ -75,6 +78,9 @@ class CacheKeysTest(unittest.TestCase):
         self.assertNotEqual(key("x", 1, 2, 3), key("x", 1.0, 2.0, 3.0))
         self.assertNotEqual(key("x", 1, 2, 3, x=0), key("x", 1, 2, 3, x=0.0))
         self.assertNotEqual(key("x", 1, 2, 3, x=0), key("x", 1, 2, 3, x=False))
+        # "self" is positional-only, so it may also be a keyword argument
+        self.assertEqual(key("x", self=1), key("y", self=1))
+        self.assertNotEqual(key("x", self=1), key("x", self=1.0))
 
     def test_addkeys(self, key=cachetools.keys.hashkey):
         self.assertIsInstance(key(), tuple)
