@@ -356,6 +356,16 @@ often called with the same arguments:
    implement the `context manager`_ protocol, and will also be used to
    guard access to the cache.
 
+   .. note::
+
+      Even though `lock` and `condition` can be passed separately,
+      the condition variable must be associated with the lock that
+      guards the cache.  In practice, when using
+      :class:`threading.Lock` and :class:`threading.Condition`, the
+      condition variable must be created with the corresponding lock,
+      e.g. ``condition=threading.Condition(lock)``; an unrelated
+      :class:`threading.Condition` will raise :exc:`RuntimeError`.
+
    The decorator's `cache`, `key`, `lock` and `condition` parameters
    are also available as :attr:`cache`, :attr:`cache_key`,
    :attr:`cache_lock` and :attr:`cache_condition` attributes of the
@@ -548,6 +558,8 @@ often called with the same arguments:
       `lock(self)` will only guard access to the cache itself.  It is
       the user's responsibility to handle concurrent calls to the
       underlying wrapped method in a multithreaded environment.
+      Likewise, a condition variable returned by `condition(self)`
+      must be associated with a lock returned by `lock(self)`.
 
    Similarly to the :func:`cached` function decorator, the `cache`,
    `key`, `lock` and `condition` parameters are also available as
