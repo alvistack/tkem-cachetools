@@ -1,3 +1,12 @@
+v7.2.8 (2026-10-31)
+===================
+
+- Fix type stubs for ``TTLCache`` and ``TLRUCache`` with default
+  ``timer``.
+
+- Minor documentation and unit test improvements.
+
+
 v7.2.7 (2026-10-28)
 ===================
 
